@@ -10,8 +10,14 @@ loadEventListeners();
 
 // Load all event listeners
 function loadEventListeners() {
-    // Add task event
-    form.addEventListener('submit', addTask);
+    
+  form.addEventListener('submit', addTask); // Add task event
+  
+  taskList.addEventListener('click', removeTask);// Remove task event
+  
+  clearBtn.addEventListener('click', clearTasks);// Clear all task events
+  
+  filter.addEventListener('keyup', filterTasks); // Filter tasks event
 }
 
 // Add Task
@@ -41,4 +47,54 @@ function addTask(event) {
 
 
   event.preventDefault(); 
+}
+
+// Remove task
+// Here, parentElement refers to 
+// <a class="delete-item secondary-content"><i class="fa fa-remove"></i></a>
+// The event.target refers to <i class="fa fa-remove"></i>
+function removeTask(event) {
+  
+    if (event.target.parentElement.classList.contains('delete-item')) {
+
+        if (confirm('Are you Sure?')) {
+
+            event.target.parentElement.parentElement.remove(); // remove the li dynamically
+        }
+        
+    }
+    
+}
+
+// Clear Tasks
+function clearTasks() {
+    // remove all, but slow
+    //taskList.innerHTML = '';
+
+    // remove Faster
+    while (taskList.firstChild) { // if there is any li, the remove it
+        taskList.removeChild(taskList.firstChild);
+    }
+
+}
+
+// Filter tasks
+function filterTasks(event) {
+    const text = event.target.value.toLowerCase();
+    // console.log(text);
+
+    document.querySelectorAll('.collection-item').forEach(function(task) { // task = li
+
+        const item = task.firstChild.textContent;
+
+        if (item.toLowerCase().indexOf(text) != -1) {
+                
+            task.style.display = 'block';
+       
+        } else {
+            task.style.display = 'none';
+        }
+
+    });
+    
 }
