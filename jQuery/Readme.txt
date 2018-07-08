@@ -1,0 +1,1 @@
+Building Content Slider using jQuery - Enjoy! 
