@@ -11,7 +11,7 @@ function UI() {
 }
 // UI prototype function
 UI.prototype.addBookToList = function(book) {
-    console.log(book);
+    // console.log(book);
     
     const list = document.getElementById('book-list');
 
