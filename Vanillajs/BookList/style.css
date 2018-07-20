@@ -2,6 +2,10 @@ body {
     background: lightblue;
 }
 
+table {
+    border: 1px solid orange;
+}
+
 .success, .error {
     color: white;
     padding: 5px;
