@@ -3,7 +3,7 @@ body {
 }
 
 table {
-    border: 1px solid orange;
+    
 }
 
 .success, .error {
@@ -23,4 +23,6 @@ table {
 #input {
     border-radius: 40px;
     background-color: orange;
+    font-size: 20px;
+    font-family: sans-serif, Arial, Helvetica, sans-serif, 'Times New Roman';
 }
